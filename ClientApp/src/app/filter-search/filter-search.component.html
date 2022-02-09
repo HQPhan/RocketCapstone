@@ -1,0 +1,151 @@
+<header>
+    <p style="height: 117px"></p>
+</header>
+<p>filter-search works!</p>
+<div class="formFlex in">
+    <div>
+        <p>Pet Type: </p>
+            <select class="form-control" id="wantedPet" [(ngModel)]="filter.wantedPet" name="wantedPet">
+                <option value="" disabled selected hidden></option>
+                <option value="Dog">Dog</option>
+                <option value="Cat">Cat</option>
+                <option value="No Preference">No Preference</option>
+            </select>
+    </div>
+    <div *ngIf="filter.wantedPet">
+        <div *ngIf="filter.wantedPet === 'Dog'" >
+            <p>Breed: </p>
+            <input type="text" class="form-control" id="breed"  [(ngModel)]="filter.dogBreed" list="breed_list" name="breed">
+            <div>
+                <datalist id="breed_list">
+                    <option *ngFor="let breed of dogBreeds; let i = index">{{breed}}</option>
+                    <option value="No Preference">No Preference</option>
+                </datalist>
+            </div>
+        </div>
+        <div *ngIf="filter.wantedPet === 'Cat'" >
+            <p>Breed: </p>
+            <input type="text" class="form-control" id="breed"  [(ngModel)]="filter.catBreed" list="breed_list" name="breed">
+            <div>
+                <datalist id="breed_list">
+                    <option *ngFor="let breed of catBreeds; let i = index">{{breed}}</option>
+                    <option value="No Preference">No Preference</option>
+                </datalist>
+            </div>
+        </div>
+    </div>
+    <div>
+        <p>age: </p>
+        <select class="form-control" id="age" [(ngModel)]="filter.age" name="age">
+            <option value="" disabled selected hidden></option>
+            <option *ngIf="filter.wantedPet == 'Dog'" value="baby">Puppy</option>
+            <option *ngIf="filter.wantedPet == 'Cat'" value="baby">Kitten</option>
+            <option value="young">Young</option>
+            <option value="adult">Adult</option>
+            <option value="senior">Senior</option>
+            <option value="No Preference">No Preference</option>
+        </select>
+    </div>
+    <div>
+        <p>gender: </p>
+        <select class="form-control" id="gender" [(ngModel)]="filter.gender" name="gender">
+            <option value="" disabled selected hidden></option>
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+            <option value="No Preference">No Preference</option>
+        </select>
+    </div>
+    <div>
+        <p>size: </p>
+        <select class="form-control" id="size" [(ngModel)]="filter.size" name="size">
+            <option value="" disabled selected hidden></option>
+            <option value="small">Small</option>
+            <option value="medium">Medium</option>
+            <option value="large">Large</option>
+            <option value="xlarge">Extra Large</option>
+            <option value="No Preference">No Preference</option>
+        </select>
+    </div>
+    <div *ngIf="filter.wantedPet == 'Dog'">
+        <p>color: </p>
+        <select class="form-control" id="color" [(ngModel)]="filter.color" name="color">
+            <option *ngFor="let dog of dogInfo.colors; let i = index" value="{{dog}}">{{dog}}</option>
+            <option value="No Preference">No Preference</option>
+        </select>
+    </div>
+    <div *ngIf="filter.wantedPet == 'Cat'">
+        <p>color: </p>
+        <select class="form-control" id="color" [(ngModel)]="filter.color" name="color">
+            <option *ngFor="let cat of catInfo.colors; let i = index" value="{{cat}}">{{cat}}</option>
+            <option value="No Preference">No Preference</option>
+        </select>
+    </div>
+    <div *ngIf="filter.wantedPet == 'Dog'">
+        <p>coat: </p>
+        <select class="form-control" id="coat" [(ngModel)]="filter.coat" name="coat">
+            <option *ngFor="let dog of dogInfo.coats; let i = index" value="{{dog}}">{{dog}}</option>
+            <option value="No Preference">No Preference</option>
+        </select>
+    </div>    
+    <div *ngIf="filter.wantedPet == 'Cat'">
+        <p>coat: </p>
+        <select class="form-control" id="coat" [(ngModel)]="filter.coat" name="coat">
+            <option *ngFor="let cat of catInfo.coats; let i = index" value="{{cat}}">{{cat}}</option>
+            <option value="No Preference">No Preference</option>
+        </select>
+    </div>   
+    <div *ngIf="filter.wantedPet == 'Cat'">
+        <p>Is Declawed: </p>
+        <select class="form-control" id="isDeclawed" [(ngModel)]="filter.isDeclawed" name="isDeclawed">
+            <option value="Yes">Yes</option>
+            <option value="No">No</option>
+            <option value="No Preference">No Preference</option>
+        </select>
+    </div>
+    <div>
+        <p>houseTrained: </p>
+        <select class="form-control" id="houseTrained" [(ngModel)]="filter.houseTrained" name="houseTrained">
+            <option value="" disabled selected hidden></option>
+            <option value="Yes">Yes</option>
+            <option value="No">No</option>
+            <option value="No Preference">No Preference</option>
+        </select>
+    </div>
+    <div>
+        <p>specialNeeds: </p>
+        <select class="form-control" id="specialNeeds" [(ngModel)]="filter.specialNeeds" name="specialNeeds">
+            <option value="" disabled selected hidden></option>
+            <option value="Yes">Yes</option>
+            <option value="No">No</option>
+            <option value="No Preference">No Preference</option>
+        </select>
+    </div>
+    <div>
+        <p>Good with kids: </p>
+        <input type="checkbox" id="goodWithKids">
+    </div>
+    <div>
+        <p>Good with cats: </p>
+        <input type="checkbox" id="goodWithCats">
+    </div>
+    <div>
+        <p>Good with dogs: </p>
+        <input type="checkbox" id="goodWithDogs">
+    </div>
+    <div>
+        <button (click)="onSubmit()">Update Search Filter</button>
+    </div>
+</div>
+
+<div *ngIf="animals">
+    <div *ngIf="animals.data.animals.length > 0">
+        <div style="border: 3px solid black;" *ngFor="let dog of animals.data.animals; let i = index">
+            <p>Dog Name: {{dog.name}}</p>
+            <p>Breed: {{dog.breeds.primary}}</p>
+            <p *ngIf="dog.breeds.mixed">Mixed Breed</p>
+            <p>Gender: {{dog.gender}}</p>
+            <p>Adoption Status: {{dog.status}}</p>
+            <img *ngIf="dog.photos.length > 0" src={{dog.photos[0].small}}>
+        </div>
+    </div>
+</div>

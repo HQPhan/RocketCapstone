@@ -1,0 +1,245 @@
+
+
+<header >
+    <p style="height: 117px" ></p>
+</header>
+
+
+<div *ngIf="loginTracker.profile" class="container" style="background:linear-gradient(90deg, rgba(154,233,249,1) 0%, rgba(106,163,231,1) 35%, rgba(8,104,218,1) 100%)"> <!--*ngIf="loginTracker.profile"-->
+    <h3>Tell us more about the pet you are looking to adopt!</h3>
+    <p>Please select the option from the dropdown on each field that applies to your preferences!</p>
+
+    <p>Warning: Too many filters could cause minimal results, specifically filtering on color and coat</p>
+    
+
+    <div *ngIf="loginTracker.profile.wantedPet === 'Dog'"> <!--*ngIf="loginTracker.profile.wantedPet === 'Dog'"-->
+        
+        <form>
+            <ul class="flex-outer">
+            <li>
+                <label for="breed">Breed: </label>
+                <input type="text"  class="form-control" id="breed"  [(ngModel)]="dogSearch.breed" list="breed_list" name="breed">
+                <li>
+                    <datalist id="breed_list">
+                        <option *ngFor="let breed of dogBreeds; let i = index">{{breed}}</option>
+                        <option value="No Preference">No Preference</option>
+                    </datalist>
+                </li>
+
+            <!-- NOT SURE WHY when closing the LI below it throws an error. Bring this up with the team. MV -->
+            <!-- </li> -->
+            
+
+            <li>
+                <label for="age">Age: </label>
+                <select class="form-control" id="age" [(ngModel)]="dogSearch.age" name="age">
+                    <option value="baby">Puppy</option>
+                    <option value="young">Young</option>
+                    <option value="adult">Adult</option>
+                    <option value="senior">Senior</option>
+                    <option value="No Preference">No Preference</option>
+                </select>
+            </li>
+
+            <li>
+                <label for="gender">Gender: </label>
+                <select class="form-control" id="gender" [(ngModel)]="dogSearch.gender" name="gender">
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                    <option value="No Preference">No Preference</option>
+                </select>
+            </li>
+
+            <li>
+                <label for="size">Size: </label>
+                <select class="form-control" id="size" [(ngModel)]="dogSearch.size" name="size">
+                    <option value="small">Small</option>
+                    <option value="medium">Medium</option>
+                    <option value="large">Large</option>
+                    <option value="xlarge">Extra Large</option>
+                    <option value="No Preference">No Preference</option>
+                </select>
+            </li>
+
+            <li>
+                <label for="color">Color: </label>
+                <select class="form-control" id="color" [(ngModel)]="dogSearch.color" name="color">
+                    <option *ngFor="let dog of dogInfo.colors; let i = index" value="{{dog}}">{{dog}}</option>
+                    <option value="No Preference">No Preference</option>
+                </select>
+            </li>
+
+            <li>
+                <label for="coat">Coat: </label>
+                <select class="form-control" id="coat" [(ngModel)]="dogSearch.coat" name="coat">
+                    <option *ngFor="let dog of dogInfo.coats; let i = index" value="{{dog}}">{{dog}}</option>
+                    <option value="No Preference">No Preference</option>
+                </select>
+            </li>
+
+            <li>
+                <label for="spayed">Spayed: </label>
+                <select class="form-control" id="spayed" [(ngModel)]="dogSearch.spayed" name="spayed">
+                    <option value="Yes">Yes</option>
+                    <option value="No">No</option>
+                    <option value="No Preference">No Preference</option>
+                </select>
+            </li>
+            
+            <li>
+                <label for="houseTrained">House trained: </label>
+                <select class="form-control" id="houseTrained" [(ngModel)]="dogSearch.houseTrained" name="houseTrained">
+                    <option value="Yes">Yes</option>
+                    <option value="No">No</option>
+                    <option value="No Preference">No Preference</option>
+                </select>
+            </li>
+
+            <li>
+                <label for="specialNeeds">Special Needs Dog: </label>
+                <select class="form-control" id="specialNeeds" [(ngModel)]="dogSearch.specialNeeds" name="specialNeeds">
+                    <option value="Yes">Yes</option>
+                    <option value="No">No</option>
+                    <option value="No Preference">No Preference</option>
+                </select>
+            </li>
+
+            <li>
+                <label for="shots">Shots Up To Date: </label>
+                <select class="form-control" id="shots" [(ngModel)]="dogSearch.shots" name="shots">
+                    <option value="Yes">Yes</option>
+                    <option value="No">No</option>
+                    <option value="No Preference">No Preference</option>
+                </select>
+            </li>
+
+            <li>
+                <button (click)="onSubmitDog()">Update Preferences</button>
+            </li>
+        
+        </ul>
+    </form>
+    </div>
+    
+  
+  
+
+    <div *ngIf="loginTracker.profile.wantedPet === 'Cat'">
+
+        <form>
+        <ul class="flex-outer">
+            <li>
+            
+                <label for="breed">Breed: </label>
+                <input type="text" class="form-control" id="breed"  [(ngModel)]="catSearch.breed" list="breed_list" name="breed">
+                <li>
+                    <datalist id="breed_list">
+                        <option *ngFor="let breed of catBreeds; let i = index">{{breed}}</option>
+                        <option value="No Preference">No Preference</option>
+                    </datalist>
+                </li>
+              <!-- NOT SURE WHY when closing the LI below it throws an error. Bring this up with the team. MV -->
+            <!-- </li> -->
+
+            <li>
+                <label for="age">Age: </label>
+                <select class="form-control" id="age" [(ngModel)]="catSearch.age" name="age">
+                    <option value="baby">Kitten</option>
+                    <option value="young">Young</option>
+                    <option value="adult">Adult</option>
+                    <option value="senior">Senior</option>
+                    <option value="No Preference">No Preference</option>
+                </select>
+            </li>
+
+            <li>
+                <label for="gender">Gender: </label>
+                <select class="form-control" id="gender" [(ngModel)]="catSearch.gender" name="gender">
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                    <option value="No Preference">No Preference</option>
+                </select>
+            </li>
+
+            <li>
+                <label for="size">Size: </label>
+                <select class="form-control" id="size" [(ngModel)]="catSearch.size" name="size">
+                    <option value="small">Small</option>
+                    <option value="medium">Medium</option>
+                    <option value="large">Large</option>
+                    <option value="xlarge">Extra Large</option>
+                    <option value="No Preference">No Preference</option>
+                </select>
+            </li>
+
+            <li>
+                <label for="color">Color: </label>
+                <select class="form-control" id="color" [(ngModel)]="catSearch.color" name="color">
+                    <option *ngFor="let cat of catInfo.colors; let i = index" value="{{cat}}">{{cat}}</option>
+                    <option value="No Preference">No Preference</option>
+                </select>
+            </li>
+
+            <li>
+                <label for="coat">Coat: </label>
+                <select class="form-control" id="coat" [(ngModel)]="catSearch.coat" name="coat">
+                    <option *ngFor="let cat of catInfo.coats; let i = index" value="{{cat}}">{{cat}}</option>
+                    <option value="No Preference">No Preference</option>
+                </select>
+            </li>
+
+            <li>
+                <label for="spayed">spayed: </label>
+                <select class="form-control" id="spayed" [(ngModel)]="catSearch.spayed" name="spayed">
+                    <option value="Yes">Yes</option>
+                    <option value="No">No</option>
+                    <option value="No Preference">No Preference</option>
+                </select>
+            </li>
+
+            <li>
+                <label for="isDeclawed">Is Declawed: </label>
+                <select class="form-control" id="isDeclawed" [(ngModel)]="catSearch.isDeclawed" name="isDeclawed">
+                    <option value="Yes">Yes</option>
+                    <option value="No">No</option>
+                    <option value="No Preference">No Preference</option>
+                </select>
+            </li>
+
+            <li>
+                <label for="houseTrained">House Trained: </label>
+                <select class="form-control" id="houseTrained" [(ngModel)]="catSearch.houseTrained" name="houseTrained">
+                    <option value="Yes">Yes</option>
+                    <option value="No">No</option>
+                    <option value="No Preference">No Preference</option>
+                </select>
+            </li>
+
+            <li>
+                <label for="specialNeeds">Special Needs Cat: </label>
+                <select class="form-control" id="specialNeeds" [(ngModel)]="catSearch.specialNeeds" name="specialNeeds">
+                    <option value="Yes">Yes</option>
+                    <option value="No">No</option>
+                    <option value="No Preference">No Preference</option>
+                </select>
+            </li>
+
+            <li>
+                <label for="shots">Shots Up To Date: </label>
+                <select class="form-control" id="shots" [(ngModel)]="catSearch.shots" name="shots">
+                    <option value="Yes">Yes</option>
+                    <option value="No">No</option>
+                    <option value="No Preference">No Preference</option>
+                </select>
+            </li>
+
+            <li>
+                <button (click)="onSubmitCat()">Update Cat Search Preference</button>
+            </li>
+        </ul>
+        </form>
+    </div>
+</div>
+<div *ngIf="!loginTracker.profile">
+    <h2>Must have profile created to set search preferences!</h2>
+</div>

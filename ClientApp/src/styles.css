@@ -1,0 +1,243 @@
+/* You can add global styles to this file, and also import other style files */
+
+/* Provide sufficient contrast against white background */
+.container{
+  width:100%;
+  max-width: 100%;
+  margin: 0 auto;
+}
+
+.petcontainer {
+  /* display: flex;
+  text-align: center; */
+  border: 3px solid rgba(8,104,218,1);
+  margin: 5px;
+  height: 100%;
+  width: 100%;
+  object-fit: contain;
+  flex-wrap: nowrap;
+}
+
+.search-image{
+  height: 100%;
+  width: 100%;
+  object-fit: contain;
+}
+
+a {
+  color: orange;
+}
+
+p.petbackgroundblock {
+  display: inline-block;
+  padding: 0;
+  margin: 0;
+}
+
+/* span {
+  font-weight: bold;
+} */
+
+code {
+  color: #e01a76;
+}
+
+body {
+  top: auto;
+  z-index: -1;
+}
+
+.btn-primary {
+  color: #fff;
+  background-color: #1b6ec2;
+  border-color: #1861ac;
+}
+
+
+/* CSS for button-17*/
+.button-17 {
+  display: inline-block;
+  align-items: center;
+  appearance: none;
+  background-color: #fff;
+  border-radius: 18px;
+  border-style: none;
+  box-shadow: rgba(0, 0, 0, .2) 0 3px 5px -1px,rgba(0, 0, 0, .14) 0 6px 10px 0,rgba(0, 0, 0, .12) 0 1px 18px 0;
+  box-sizing: border-box;
+  color: #174ea6;
+  cursor: pointer;
+  display: inline-flex;
+  fill: currentcolor;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  font-size: 14px;
+  font-weight: bold;
+  height: 80px;
+  justify-content: center;
+  letter-spacing: .25px;
+  line-height: normal;
+  max-width: 100%;
+  overflow: visible;
+  padding: 2px;
+  position: relative;
+  text-align: center;
+  text-transform: none;
+  transition: box-shadow 280ms cubic-bezier(.4, 0, .2, 1),opacity 15ms linear 30ms,transform 270ms cubic-bezier(0, 0, .2, 1) 0ms;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  width: auto;
+  will-change: transform,opacity;
+  z-index: 0;
+}
+
+.button-17:hover {
+  background: #F6F9FE;
+  color: #e29b18;
+  box-shadow: rgba(255, 255, 255, .2) 0 3px 15px inset, rgba(0, 0, 0, .1) 0 3px 5px, rgba(0, 0, 0, .1) 0 10px 13px;
+  transform: scale(1.05);
+  
+}
+
+.button-17:active {
+  box-shadow: 0 4px 4px 0 rgb(60 64 67 / 30%), 0 8px 12px 6px rgb(60 64 67 / 15%);
+  outline: none;
+}
+
+.button-17:focus {
+  outline: none;
+  border: 2px solid #4285f4;
+}
+
+.button-17:not(:disabled) {
+  box-shadow: rgba(60, 64, 67, .3) 0 1px 3px 0, rgba(60, 64, 67, .15) 0 4px 8px 3px;
+}
+
+.button-17:not(:disabled):hover {
+  box-shadow: rgba(60, 64, 67, .3) 0 2px 3px 0, rgba(60, 64, 67, .15) 0 6px 10px 4px;
+}
+
+.button-17:not(:disabled):focus {
+  box-shadow: rgba(60, 64, 67, .3) 0 1px 3px 0, rgba(60, 64, 67, .15) 0 4px 8px 3px;
+}
+
+.button-17:not(:disabled):active {
+  box-shadow: rgba(60, 64, 67, .3) 0 4px 4px 0, rgba(60, 64, 67, .15) 0 8px 12px 6px;
+}
+
+.button-17:disabled {
+  box-shadow: rgba(60, 64, 67, .3) 0 1px 3px 0, rgba(60, 64, 67, .15) 0 4px 8px 3px;
+}
+/* source from https://getcssscan.com/css-buttons-examples */
+
+.petbackgroundblock{
+  display: inline-table;
+  border-width: 5px;
+  /* border-color: blue; */
+  align-items: center;
+  border-radius: 10px;
+  background-color: rgb(131, 188, 226);
+  width: 23%;
+}
+
+.gradient{
+  border-radius: 3px;
+  background: linear-gradient(90deg, rgba(154,233,249,1) 0%, rgba(106,163,231,1) 35%, rgba(8,104,218,1) 100%);
+}
+
+.media-scroller {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: 25%;
+}
+
+.img-container {
+  float: left;
+  width: 33.33%;
+  padding: 5px;
+}
+
+.center-bottom {
+  display: inline-block;
+  text-align: center;
+  font-size: 48px;
+  font-weight: bold;
+  font-family: "Impact";
+  color: white;
+  -webkit-text-stroke-width: 2px;
+  -webkit-text-stroke-color: orange;
+}
+
+.bottom {
+  display: flex;
+  align-items: flex-end;
+}
+
+.clearfix::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+nav {
+  ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+
+    li {
+      position: relative;
+
+      a {
+        padding: 10px 5px;
+        padding-left: 30px;
+      }
+
+      &:hover {
+        background-color: rgba(0, 150, 255, 1);
+
+        & > ul {
+          top: 0%;
+        }
+      }
+
+      & > ul {
+        position: absolute;
+        background-color: rgba(0, 0, 0, 0.9);
+        width: 100%;
+        top: 1999px;
+        left: 100%;
+        transition: top 0.5s;
+
+        li {
+          min-width: 120px;
+        }
+
+        &:hover {
+          top: 0%;
+        }
+      }
+    }
+
+    a {
+      color: #ffffff;
+      text-decoration: none;
+      padding-left: 25px;
+      display: block;
+
+      &:after {
+        content: "\f054";
+        font-family: "FontAwesome";
+        display: block;
+        position: absolute;
+        left: 15px;
+        top: 13px;
+        font-size: 12px;
+      }
+    }
+  }
+
+  /* First-Level Navigation */
+  & > ul {
+    margin-top: 32px;
+  }
+}

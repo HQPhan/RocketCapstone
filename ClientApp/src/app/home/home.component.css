@@ -1,0 +1,34 @@
+*{
+  box-sizing: border-box;
+}
+
+.img-container {
+  float: left;
+  width: 33.33%;
+  padding: 5px;
+}
+
+.text-in-image-container {
+  position: relative;
+  text-align: center;
+  color: white;
+  border: 3px solid gray;
+}
+
+.center-bottom {
+  position: absolute;
+  bottom: 8px;
+  left: 50%;
+  transform: translate(-50%,-50%)
+}
+
+.bottom {
+  display: flex;
+  align-items: flex-end;
+}
+
+.clearfix::after {
+  content: "";
+  clear: both;
+  display: table;
+}

@@ -1,0 +1,81 @@
+.container{
+    width:80%;
+    max-width:1200px;
+    margin: 0 auto;
+    padding: 100px;
+    border-radius: 10px;
+
+}
+
+
+.container *{
+  box-sizing:border-box;
+  /* background: linear-gradient(); */
+}
+
+.center{
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+.flex-outer,
+.flex-inner {
+  list-style-type: none;
+  padding: 0;
+} 
+
+  .flex-outer {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+.flex-inner {
+    padding: 0 8px;
+    justify-content: space-between;  
+  }
+  
+.flex-outer > li:not(:last-child) {
+    margin-bottom: 10px;
+  }
+
+
+.flex-outer li {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.flex-outer li label,
+.flex-outer li p {
+  padding: 8px;
+  font-weight: 500;
+  letter-spacing: .09em;
+  text-transform: uppercase;
+}
+
+/* this lines up the attibutes and the fields that need to be filled into the form */
+.flex-outer > li > label,
+.flex-outer li p {
+  flex: 1 0 120px;
+  max-width: 220px;
+}
+
+/* this adds a space between the attributes and the fields */
+.flex-outer > li > label + *,
+.flex-inner {
+  flex: 1 0 220px;
+} 
+
+
+/* styling for the CREATE button */
+.flex-outer li button {
+  margin-left: auto;
+  padding: 8px 16px;
+  border: none;
+  background:white;
+  color:#174ea6;
+  text-transform: uppercase;
+  letter-spacing: .09em;
+  border-radius: 2px;
+}

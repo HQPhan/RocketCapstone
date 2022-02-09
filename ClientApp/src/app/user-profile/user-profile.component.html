@@ -1,0 +1,105 @@
+<header >
+    <p style="height: 117px" ></p>
+</header>
+
+
+<div *ngIf="loginTracker.loggedIn && !loginTracker.profile" class="container" style="background:linear-gradient(90deg, rgba(154,233,249,1) 0%, rgba(106,163,231,1) 35%, rgba(8,104,218,1) 100%)">
+    <h3>Tell us about you and what you are looking for!</h3>
+    <p>Please select the option from the dropdown on each field that applies to you!</p>
+    <form>
+    <ul class="flex-outer">
+        <li>
+            <label for="wantedPet">Wanted Pet: </label>
+            <select  class="form-control" id="wantedPet" placeholder="Select the desired pet" [(ngModel)]="profile.wantedPet" name="wantedPet">
+                <option value="Dog">Dog</option>
+                <option value="Cat">Cat</option>
+            </select>
+        </li>
+        <li>
+            <label for="kidsAtHome">Kids at Home: </label>
+            <select class="form-control" id="kidsAtHome" placeholder="Kids at Home" [(ngModel)]="profile.kidsAtHome" name="kidsAtHome">
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+            </select>
+        </li>
+        <li>
+            <label for="currentPetOwner">Pets at Home: </label>
+            <select class="form-control" id="currentPetOwner" placeholder="Pets at Home" [(ngModel)]="profile.currentPetsAtHome" name="currentPetOwner ">
+                <option value="Dog">Dog</option>
+                <option value="Cat">Cat</option>
+                <option value="Both">Both Dog and Cat</option>
+                <option value="None">None</option>
+            </select>
+        </li>
+        <li>
+            <label for="outdoorSpace">Outdoor Space Available: </label>
+            <select class="form-control" id="outdoorSpace" placeholder="Outdoor space available" [(ngModel)]="profile.outdoorSpace" name="outdoorSpace">
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+            </select>
+        </li>
+        <li>
+            <label for="landlordPetRestriction">Pet Restrictions/HOA: </label>
+            <select class="form-control" id="landlordPetRestriction" placeholder="Pet restrictions" [(ngModel)]="profile.landlordPetRestriction" name="landlordPetRestriction">
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+            </select>
+        </li>
+
+        <li>
+            <button (click)="onSubmit()">Update Profile</button>
+        </li>
+    </ul>
+</form>
+</div>
+
+<div *ngIf="!loginTracker.loggedIn">
+    <h2>Must be logged in to view this page!</h2>
+</div>
+
+
+<!-- <div *ngIf="loginTracker.loggedIn && loginTracker.profile">
+    <h3>Edit Profile</h3>
+    <ul class="flex-outer">
+        <div>
+            <p>Wanted Pet: </p>
+            <select class="form-control" id="wantedPet" [(ngModel)]="profile.wantedPet" name="wantedPet">
+                <option value="Dog">Dog</option>
+                <option value="Cat">Cat</option>
+            </select>
+        </div>
+        <div>
+            <p>Kids at Home: </p>
+            <select class="form-control" id="kidsAtHome" [(ngModel)]="profile.kidsAtHome" name="kidsAtHome">
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+            </select>
+        </div>
+        <div>
+            <p>Pets at Home: </p>
+            <select class="form-control" id="currentPetOwner" [(ngModel)]="profile.currentPetsAtHome" name="currentPetOwner ">
+                <option value="Dog">Dog</option>
+                <option value="Cat">Cat</option>
+                <option value="Both">Both Dog and Cat</option>
+                <option value="None">None</option>
+            </select>
+        </div>
+        <div>
+            <p>Outdoor Space Available for Pet: </p>
+            <select class="form-control" id="outdoorSpace" [(ngModel)]="profile.outdoorSpace" name="outdoorSpace">
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+            </select>
+        </div>
+        <div>
+            <p>Pet Restrictions: </p>
+            <input type="text" class="form-control" id="landlordPetRestriction"  [(ngModel)]="profile.landlordPetRestriction" name="landlordPetRestriction">
+        </div>
+        <div>
+            <button (click)="onSubmit()">Update</button>
+        </div>
+    </ul>
+</div> -->
+
+
+

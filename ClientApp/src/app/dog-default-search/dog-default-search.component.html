@@ -1,0 +1,27 @@
+<head>
+</head>
+<body>
+<header >
+    <p style="height: 130px"></p>
+</header>
+<main>
+<h2>Pet Finder Dog Search Results</h2>
+
+<div *ngIf="dogs">
+    <div *ngIf="dogs.data.animals.length > 0">
+        <div >
+            <div class="petcontainer petbackgroundblock" *ngFor="let dog of dogs.data.animals; let i = index">
+                <p><strong>Name:</strong> {{dog.name}}</p>
+                <div style="height: 300px">
+                    <img class="search-image" *ngIf="dog.photos.length > 0" src={{dog.photos[0].small}}>
+                    <img class="search-image" *ngIf="dog.photos.length === 0" src="/assets/images/musketeerdog.jpg">
+                </div>              
+                <p><strong>Breed:</strong> {{dog.breeds.primary}}</p> <br *ngIf="dog.breeds.primary.length < 29">
+                <p><strong>Gender:</strong> {{dog.gender}}</p>
+                <p style="float: right; bottom: 0px;"><button (click)="favoriteAnimal(dog.id)" ><i class="fa fa-heart"></i></button></p>
+            </div>
+        </div>
+    </div>
+</div>
+</main>
+</body>

@@ -1,0 +1,36 @@
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
+</head>
+
+<body>
+<header>
+    <p style="height: 117px"></p>
+</header>
+<main>
+    <div class="formFlex" style="display: flexbox; align-items: center; width: 50%; background: rgb(81, 180, 238); padding: 10%; border-radius: 10px;">
+        <div>
+            <p>Username: </p>
+            <input type="text" class="form-control" id="userName" [(ngModel)]="currentAccount.userName" name="userName" maxlength="60" placeholder="Enter username (i.e. abc123)">
+        </div>
+        <div>
+            <p>Password: </p>
+            <input type="password" class="form-control" id="password" [(ngModel)]="currentAccount.password" name="password" maxlength="60" placeholder="Enter password (i.e. T3C0de@tEErs [uppercase & lowercase letters, numbers, and at least one symbol)">
+            <i class="far fa-eye" id="togglePassword" style="position: relative; cursor: pointer;" (click)="showPassword()" ></i>
+        </div>
+        <div>
+            <button type="reset" (click)="otherLogin()">Login</button>
+        </div>
+    </div>
+    <script>
+        const togglePassword = document.querySelector('#togglePassword');
+    const password = document.querySelector('#id_password');
+    togglePassword.addEventListener('click', function (e) {
+        // toggle the type attribute
+        const type = password.getAttribute('type') === 'password' ? 'text' : 'password';
+        password.setAttribute('type', type);
+        // toggle the eye slash icon
+        this.classList.toggle('fa fa-eye-slash');
+    });
+    </script>
+    </main>
+</body>

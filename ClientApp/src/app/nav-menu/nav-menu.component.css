@@ -1,0 +1,64 @@
+.nav ul {
+  display: inline-block;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+nav ul li {
+  padding: 2px;
+  margin: 0;
+}
+
+.box-shadow {
+  box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
+}
+
+.gradient{
+  border-radius: 3px;
+  background: linear-gradient(90deg, rgba(154,233,249,1) 0%, rgba(106,163,231,1) 35%, rgba(8,104,218,1) 100%);
+}
+
+p span {
+  display: block;
+  padding: 0;
+  margin: 0;
+}
+
+i {
+  font-size: 24px;
+}
+
+button {
+  font-size: 14px;
+}
+
+a {
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  font-style:normal;
+  font-weight: bold;
+  font-size:large;
+  text-decoration: none;
+  margin: 0;
+  padding: 0;
+  
+}
+
+.sticky {
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+.stickytop {
+  position: sticky;
+  top: 0;
+  width: 100%;
+}
+
+.stickybottom {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+

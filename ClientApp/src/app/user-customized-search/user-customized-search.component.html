@@ -1,0 +1,48 @@
+<header >
+    <p style="height: 117px" ></p>
+</header>
+
+<p>user-customized-search works!</p>
+<div *ngIf="loginTracker.loggedIn"> 
+    <div *ngIf="loginTracker.profile && (loginTracker.dogSearch || loginTracker.catSearch)">
+        <div *ngIf="loginTracker.profile.wantedPet === 'Dog'">
+            <button class="btn btn-primary" (click)="searchDog()">Dog Search</button>
+        </div>
+        <div *ngIf="loginTracker.profile.wantedPet === 'Cat'">
+            <button class="btn btn-primary" (click)="searchCat()">Cat Search</button>
+        </div>
+        
+        <div></div>
+        <div *ngIf="dogs">
+            <div *ngIf="dogs.data.animals.length > 0">
+                <div style="border: 3px solid black;" *ngFor="let dog of dogs.data.animals; let i = index">
+                    <p>Dog Name: {{dog.name}}</p>
+                    <p>Breed: {{dog.breeds.primary}}</p>
+                    <p *ngIf="dog.breeds.mixed">Mixed Breed</p>
+                    <p>Gender: {{dog.gender}}</p>
+                    <p>Adoption Status: {{dog.status}}</p>
+                    <img *ngIf="dog.photos.length > 0" src={{dog.photos[0].small}}>
+                </div>
+            </div>
+        </div>
+
+        <div *ngIf="cats">
+            <div *ngIf="cats.data.animals.length > 0">
+                <div style="border: 3px solid black;" *ngFor="let cat of cats.data.animals; let i = index">
+                    <p>Cat Name: {{cat.name}}</p>
+                    <p>Breed: {{cat.breeds.primary}}</p>
+                    <p *ngIf="cat.breeds.mixed">Mixed Breed</p>
+                    <p>Gender: {{cat.gender}}</p>
+                    <p>Adoption Status: {{cat.status}}</p>
+                    <img *ngIf="cat.photos.length > 0" src={{cat.photos[0].small}}>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div *ngIf="!loginTracker.loggedIn">
+    <h2>Must be logged in to view this page!</h2>
+</div>
+<div *ngIf="loginTracker.profile && !(loginTracker.dogSearch || loginTracker.catSearch)">
+    <h2>Must have both a profile and search preferences set up to use custom search!</h2>
+</div>

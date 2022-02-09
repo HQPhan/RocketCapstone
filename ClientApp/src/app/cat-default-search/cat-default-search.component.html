@@ -1,0 +1,25 @@
+<head>
+
+</head>
+<body>
+<header>
+    <p style="height: 130px"></p>
+</header>
+<main>
+<h2>Pet Finder Cat Search Results</h2>
+
+<div *ngIf="cats">
+    <div *ngIf="cats.data.animals.length > 0">
+        <div class="container petbackgroundblock" *ngFor="let cat of cats.data.animals; let i = index">
+            <p>Name: {{cat.name}}</p>
+            <p>Breed: {{cat.breeds.primary}}</p>
+            <p *ngIf="cat.breeds.mixed">Mixed Breed</p>
+            <p>Gender: {{cat.gender}}</p>
+            <p>Adoption Status: {{cat.status}}</p>
+            <img *ngIf="cat.photos.length > 0" src={{cat.photos[0].small}}>
+            <p><button (click)="favoriteAnimal(cat.id)" >favorite cat</button></p>
+        </div>       
+    </div>
+</div>
+</main>
+</body>

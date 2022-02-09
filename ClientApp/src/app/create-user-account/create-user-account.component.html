@@ -1,0 +1,41 @@
+
+
+<header >
+    <p style="height: 130px"></p>
+</header>
+
+<div class="container" style="background:linear-gradient(90deg, rgba(154,233,249,1) 0%, rgba(106,163,231,1) 35%, rgba(8,104,218,1) 100%)">
+    <form>
+    <ul class="flex-outer">
+        <li>
+            <label for="userName">Username: </label>
+            <input type="text" class="form-control" id="userName" placeholder="Enter your username here" [(ngModel)]="createdAccount.userName" name="userName">
+        </li>
+        <li>
+            <label for="password">Password: </label>
+            <input type="password" class="form-control" id="password" placeholder="Enter your password here" [(ngModel)]="createdAccount.password" name="password">
+        </li>
+        <li>
+            <label for="firstName">First Name: </label>
+            <input type="text" class="form-control" id="firstName" placeholder="Enter your First Name here" [(ngModel)]="createdAccount.firstName" name="firstName">
+        </li>
+        <li>
+            <label for="lastName">Last Name: </label>
+            <input type="text" class="form-control" id="lastName" placeholder="Enter your Last Name here" [(ngModel)]="createdAccount.lastName" name="lastName">
+        </li>
+        <li>
+            <label for="contact">Email: </label>
+            <input type="email" class="form-control" id="contact" placeholder="email@domain.com" [(ngModel)]="createdAccount.contact" name="contact">
+        </li>
+        <li>
+            <label for="address">Address: </label>
+            <input type="text" class="form-control" id="address" placeholder="Enter your address here"  [(ngModel)]="createdAccount.address" name="address">
+        </li>
+        <li>
+            <button class="button"(click)="onSubmit()">Create</button>
+        </li>
+      </ul>
+    </form>
+    </div>
+
+    

@@ -1,0 +1,95 @@
+<html> 
+<head>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+<header class="sticky">
+  <nav class="gradient" style="height: 200px; width: 100%; text-align: center;">
+  <div>
+    <img src="/assets/images/cat-food-german-shepherd.png" width="120px" height="100px" style="position:absolute; top:47px; left:5vw">
+  </div>
+  <div>
+    <a [routerLink]="['/']">
+        <h1>FindMeAHooman.com</h1>
+
+      </a>
+        <p style="font-size: 8pt; padding:0; margin: 0">&#169; 2022 The Three Codeketeers</p>
+        <p style="font-size: 8pt; padding:0; margin: 0">Disclaimer: This is not a published website</p>
+    
+  </div>
+  <ul style="display:flex; list-style:none; margin:0; padding:0; position: absolute; top: 10px; right: 10px">
+    <div>
+      <img src="/assets/images/puppy-kitten.png" width="120px" height="100px">
+    </div>
+    <li [routerLinkActive]="['link-active']" [routerLinkActiveOptions]="{ exact: true }">
+      <a [routerLink]="['/']">
+        <button class="button-17">
+          <p><span><i class="fa fa-home"></i></span> <span>Home</span></p>       
+        </button>
+      </a>
+    </li>
+    <li [routerLinkActive]="['link-active']">
+      <a [routerLink]="['/dog-default-search']">              
+        <button class="button-17">
+          <p><span><i class="fas fa-dog"></i></span> <span>Dog </span> <span>Search</span></p>       
+        </button>
+        </a>
+    </li>
+    <li [routerLinkActive]="['link-active']">
+      <a [routerLink]="['/cat-default-search']">
+        <button class="button-17">
+          <p><span><i class="fas fa-cat"></i></span> <span>Cat </span> <span>Search</span></p>       
+        </button>
+      </a>
+    </li>
+    <li *ngIf="!loginTracker.loggedIn" [routerLinkActive]="['link-active']">
+      <a [routerLink]="['/create-user-account']"
+        ><button class="button-17">
+          <p><span><i class="fas fa-user"></i></span> <span>Create </span> <span>Account</span></p>       
+        </button>
+      </a>
+    </li>
+    <li *ngIf="loginTracker.loggedIn" >
+      <a [routerLink]="['/search-preference']"
+        >Search Preferences
+      </a>
+    </li>
+    <li *ngIf="!loginTracker.loggedIn" [routerLinkActive]="['link-active']">
+      <a [routerLink]="['/user-login']">
+        <button class="button-17">
+          <p><span><i class="fas fa-paw"></i></span> <span>Sign </span> <span>In</span></p>       
+        </button> 
+      </a>
+    </li>
+    <li *ngIf="loginTracker.loggedIn" [routerLinkActive]="['link-active']">
+      <a [routerLink]="['/user-profile']"
+        >Profile Creation</a
+      >
+    </li>
+    <li *ngIf="loginTracker.loggedIn" [routerLinkActive]="['link-active']">
+      <a [routerLink]="['/user-custom-search']"
+        >Custom Search</a
+      >
+    </li>
+    <li *ngIf="loginTracker.loggedIn" [routerLinkActive]="['link-active']">
+      <a [routerLink]="['/wishlist']"
+        >View Wishlist</a
+      >
+    </li>
+    <li *ngIf="loginTracker.loggedIn">
+      <a role="button" (click)="loginTracker.logOut()"
+        >
+        <button class="button-17">
+          <p><span><i class="fas fa-paw"></i></span> <span>Sign </span> <span>Out</span></p>       
+        </button>           
+      </a>
+    </li>
+  </ul>    
+</nav>
+
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <!-- <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script> -->
+</header>
+</body>
+</html>

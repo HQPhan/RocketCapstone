@@ -1,0 +1,20 @@
+<header >
+    <p style="height: 117px" ></p>
+</header>
+<div *ngIf="loginTracker.loggedIn">
+
+    <div *ngIf="animalWishlist.length > 0">
+            <div style="border: 3px solid black;" *ngFor="let dog of animalWishlist; let i = index">
+                <p>Dog Name: {{dog.name}}</p>
+                <p>Breed: {{dog.breeds.primary}}</p>
+                <p *ngIf="dog.breeds.mixed">Mixed Breed</p>
+                <p>Gender: {{dog.gender}}</p>
+                <p>Adoption Status: {{dog.status}}</p>
+                <img *ngIf="dog.photos.length > 0" src={{dog.photos[0].small}}>
+                <button (click)="favoriteAnimal(dog.id)" >favorite animal</button>
+            </div>
+    </div>
+</div>
+<div *ngIf="!loginTracker.loggedIn">
+    <h2>Must be logged in to view this page!</h2>
+</div>
